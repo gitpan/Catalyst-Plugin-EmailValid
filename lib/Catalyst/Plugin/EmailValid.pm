@@ -6,7 +6,7 @@ use strict;
 use Catalyst::Request;
 use Email::Valid;
 
-our $VERSION = 0.01;
+our $VERSION = 0.011;
 
 =head1 NAME
 
@@ -14,7 +14,7 @@ Catalyst::Plugin::EmailValid - Email::Valid for Catalyst
 
 =head1 SYNOPSIS
 
-    use Catalyst /EmailValid/;
+    use Catalyst qw/EmailValid/;
     ...
     $c->check_email();
     
@@ -38,8 +38,7 @@ sub check_email {
     }
     $c->log->debug('Checking Mail "'.$c->req->params->{email}.'"');
     unless (Email::Valid->address($params ? %$params : $c->req->params->{email})) {
-        $c->log->debug('F
-        ailed "'.$Email::Valid::Details.'"');
+        $c->log->debug('Failed "'.$Email::Valid::Details.'"');
         $c->stash->{error}   = 1;
         $c->stash->{message} = "Email not valid.";
     }

@@ -1,8 +1,8 @@
-NAME
+ÆNAME
     Catalyst::Plugin::EmailValid - Email::Valid for Catalyst
 
 SYNOPSIS
-        use Catalyst /EmailValid/;
+        use Catalyst qw/EmailValid/;
         ...
         $c->check_email();
     
