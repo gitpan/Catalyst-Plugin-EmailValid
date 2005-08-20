@@ -1,0 +1,23 @@
+NAME
+    Catalyst::Plugin::EmailValid - Email::Valid for Catalyst
+
+SYNOPSIS
+        use Catalyst /EmailValid/;
+        ...
+        $c->check_email();
+    
+DESCRIPTION
+    This module determines whether an email address is well-formed.
+
+  METHOD
+   check_email
+SEE ALSO
+    Catalyst, Email::Valid
+
+AUTHOR
+    Franck Cuny <franck@breizhdev.net>
+
+COPYRIGHT
+    This program is free software, you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
