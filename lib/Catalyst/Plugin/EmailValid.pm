@@ -3,10 +3,10 @@ package Catalyst::Plugin::EmailValid;
 use warnings;
 use strict;
 
-use Catalyst::Request;
+use Catalyst::Engine;
 use Email::Valid;
 
-our $VERSION = 0.011;
+our $VERSION = 0.013;
 
 =head1 NAME
 
@@ -20,7 +20,7 @@ Catalyst::Plugin::EmailValid - Email::Valid for Catalyst
     
 =head1 DESCRIPTION
 
-This module determines whether an email address is well-formed.
+determines whether an email address is well-formed.
 
 =cut
 
@@ -33,14 +33,17 @@ This module determines whether an email address is well-formed.
 sub check_email {
     my $c = shift;
     my $params;
-    if ($_[0]) {
-        $params = $_[1] ? {@_} : $_[0];
+    if ( $_[ 0 ] ) {
+        $params = $_[ 1 ] ? { @_ } : $_[ 0 ];
     }
-    $c->log->debug('Checking Mail "'.$c->req->params->{email}.'"');
-    unless (Email::Valid->address($params ? %$params : $c->req->params->{email})) {
-        $c->log->debug('Failed "'.$Email::Valid::Details.'"');
-        $c->stash->{error}   = 1;
-        $c->stash->{message} = "Email not valid.";
+    $c->log->debug( 'Checking Mail "' . $c->req->params->{ email } . '"' );
+    unless ( Email::Valid->address(
+                               $params ? %$params : $c->req->params->{ email }
+             ) )
+    {
+        $c->log->debug( 'Failed "' . $Email::Valid::Details . '"' );
+        $c->stash->{ error }   = 1;
+        $c->stash->{ message } = "Email not valid.";
     }
     return $c;
 }
@@ -51,7 +54,7 @@ L<Catalyst>, L<Email::Valid>
 
 =head1 AUTHOR
 
-Franck Cuny <franck@breizhdev.net>
+Franck Cuny <franck.cuny@gmail.com>
 
 =head1 COPYRIGHT
 
@@ -60,4 +63,3 @@ the same terms as Perl itself.
 
 =cut
 
-1;

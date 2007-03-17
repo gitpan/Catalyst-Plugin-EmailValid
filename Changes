@@ -2,5 +2,8 @@ Revision history for Perl module Catalyst::Plugin::EmailValid
 
 0.01 Mon Aug 15 16:29:29 2005
     - original version; created by ExtUtils::ModuleMaker 0.36
-
-
+0.012 Thu Oct  6 17:35:30 EST 2005
+    - Cleanup ._ macintosh leftovers. Fixed aberrant line 
+    	break in EmailValid.pm line 41.
+0.013 Sat Mars 17
+	  - tests

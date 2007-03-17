@@ -1,9 +1,13 @@
-MANIFEST
-LICENSE
-README
-Todo
 Changes
 lib/Catalyst/Plugin/EmailValid.pm
-t/001_load.t
+LICENSE
 Makefile.PL
-META.yml                                 Module meta-data (added by MakeMaker)
+MANIFEST
+META.yml
+README
+t/001_load.t
+t/01.emailvalid.t
+t/kwalitee.t
+t/lib/TestApp.pm
+t/pod-coverage.t
+t/pod.t
